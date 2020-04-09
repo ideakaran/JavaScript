@@ -1,0 +1,29 @@
+WeeWikiPaint
+In Agile, one technique is Minimum Marketing Feature (MMF) is sth that the market cares about.
+Does not have to be money, It is sth that market cares.
+
+For WeeWikiPaint: We build a collaborative, real time application.
+Features
+- marketing home page
+- collaborative painting page (very basic)
+- wiki-fy the pages
+- more complex painting ?
+- more collaborative features
+
+User Stories (way of showing business process)
+- "hello world" server
+- "hello world" client
+- support multiple features
+- marketing copy
+
+To get above stories done, we need engineering tasks. Engineering tasks are todo's for programmers
+Engineering Tasks
+- automated build
+- static code analysis (Lint)
+    -Bring in all options
+- continuous integration
+- server-side testing
+- client-side testing
+
+ToDo on current task
+- make build fail when lint fails
