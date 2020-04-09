@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "jake": "^10.4.6",
-    "jshint": "^2.11.0"
+    "jshint": "^2.11.0",
+    "nodeunit": "^0.11.3"
   }
 }

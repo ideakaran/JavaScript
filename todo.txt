@@ -26,4 +26,8 @@ Engineering Tasks
 - client-side testing
 
 ToDo on current task
-- make build fail when lint fails
+- make build fail when lint fails ->DONE
+- Choose framework
+- Abstract it
+- swap out a different framework to make sure abstraction works
+- Add License.TXT

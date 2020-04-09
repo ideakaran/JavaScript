@@ -2,6 +2,7 @@
 (function() {
     "use strict";
 
+
     function nodeLintOptions() {
         return {
             bitwise: true,
@@ -23,7 +24,7 @@
     }
 
     desc("Build and Test");
-    task("default", ["lint"]);
+    task("default", ["lint", "test"]);
 
 
     desc("Lint everything");
@@ -40,6 +41,13 @@
         }
     });
 
+    desc("Test everything");
+    task("test", [], function(){
+        console.log("test goes here");
+
+        var reporter = require('nodeunit').reporters["default"];
+        reporter.run(['src/server/_server_test.js']);
+    });
 
     desc("Integrate");
     task("integrate", ["default"], function(){
