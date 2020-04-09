@@ -27,7 +27,9 @@ Engineering Tasks
 
 ToDo on current task
 - make build fail when lint fails ->DONE
-- Choose framework
-- Abstract it
-- swap out a different framework to make sure abstraction works
-- Add License.TXT
+- Choose framework -> DONE
+- make lint fail when test fail
+
+FUTURE IDEAS
+- Abstract test framework? (swap out a different framework to make sure abstraction works)
+- Add License.TXT (DONE)
