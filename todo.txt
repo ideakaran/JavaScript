@@ -16,7 +16,7 @@ User Stories (way of showing business process)
 - support multiple features
 - marketing copy
 
-To get above stories done, we need engineering tasks. Engineering tasks are todo's for programmers
+To get above stories done, we need engineering tasks. Engineering tasks are to do's for programmers
 Engineering Tasks
 - automated build
 - static code analysis (Lint)
@@ -27,7 +27,7 @@ Engineering Tasks
 
 -Create a very simple HTTP server
 
-ToDo on current task
+To do on current task
 - make build fail when lint fails ->DONE
 - Choose framework -> DONE
 - make lint fail when test fail -> DONE

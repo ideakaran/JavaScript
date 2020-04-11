@@ -1,7 +1,6 @@
 "use strict";
-
+var PORT = "8080";
 var server = require("./server");
-var assert = require("assert");
 var http = require("http");
 
 exports.tearDown = function(done) {
@@ -22,7 +21,7 @@ exports.test_serverRespondsToGetRequests = function(test) {
 };
 
 exports.test_serverReturnsHelloWorld = function(test) {
-    server.start(); //TODO: remove duplication?
+    server.start(8080);
     var request = http.get("http://localhost:8080");
     request.on("response", function(response) {
         var receivedData = false;
