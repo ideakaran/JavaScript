@@ -12,7 +12,7 @@ Features
 
 User Stories (way of showing business process)
 - "hello world" server (DONE)
-- Serve a one-file homepage
+- Serve a one-file homepage (DONE)
 - Serve 404 errors for everything else
 - Marketing copy
 - Publish to Internet
