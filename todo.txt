@@ -31,8 +31,8 @@ ToDo on current task
 - make build fail when lint fails ->DONE
 - Choose framework -> DONE
 - make lint fail when test fail -> DONE
-- Spike HTTP Server with NODE
-- Test-drive Server
+- Spike HTTP Server with NODE -> DONE
+- Test-drive Server  -> DONE
 - Modify build script to enforce
 
 FUTURE IDEAS

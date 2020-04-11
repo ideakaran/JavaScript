@@ -2,13 +2,12 @@
 
 console.log("I am a server");
 var http = require("http");
-var server = http.createServer();
+var server;
 
 exports.start = function() {
-
+    server = http.createServer();
     server.on("request", function(request, response){
-        console.log("Received Request");
-        response.end("foo");
+        response.end("Hello World");
     });
    server.listen(8080);     //TODO: duplication of port number
 };
