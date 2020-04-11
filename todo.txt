@@ -11,13 +11,19 @@ Features
 - more collaborative features
 
 User Stories (way of showing business process)
-- "hello world" server
-- "hello world" client
-- support multiple features
-- marketing copy
+- "hello world" server (DONE)
+- Serve a one-file homepage
+- Serve 404 errors for everything else
+- Marketing copy
+- Publish to Internet
 
 To get above stories done, we need engineering tasks. Engineering tasks are to do's for programmers
 Engineering Tasks
+- Spike serving a file
+- TDD file serving
+- design work
+
+
 - Create a very simple HTTP Server (DONE)
 - automated build (DONE)
 - static code analysis (Lint) (DONE)
@@ -25,6 +31,7 @@ Engineering Tasks
 - continuous integration (DONE)
 - server-side testing (DONE)
 - client-side testing
+
 
 -Create a very simple HTTP server
 
