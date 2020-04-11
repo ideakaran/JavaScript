@@ -18,11 +18,12 @@ User Stories (way of showing business process)
 
 To get above stories done, we need engineering tasks. Engineering tasks are to do's for programmers
 Engineering Tasks
-- automated build
-- static code analysis (Lint)
+- Create a very simple HTTP Server (DONE)
+- automated build (DONE)
+- static code analysis (Lint) (DONE)
     -Bring in all options
-- continuous integration
-- server-side testing
+- continuous integration (DONE)
+- server-side testing (DONE)
 - client-side testing
 
 -Create a very simple HTTP server
@@ -33,11 +34,13 @@ To do on current task
 - make lint fail when test fail -> DONE
 - Spike HTTP Server with NODE -> DONE
 - Test-drive Server  -> DONE
-- Modify build script to enforce
+- Modify build script to enforce NODE version
+_ Integrate
 
 FUTURE IDEAS
 - Abstract test framework? (swap out a different framework to make sure abstraction works)
 - Add License.TXT (DONE)
+- Create 'fail fast' assertion code
 
 Notes:
 -Nodeunit does not work properly on windows
