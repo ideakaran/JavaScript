@@ -1,4 +1,4 @@
-WeeWikiPaint
+PAINT
 
 To build:
 - Assumes presence of Node.js
