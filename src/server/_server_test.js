@@ -2,15 +2,22 @@
 
 var server = require("./server");
 var assert = require("assert");
+var http = require("http");
 
-
-exports.testNothing = function(test) {
-    test.ok(true, "hello");
-    assert.equal(0, server.number(), "number");
-    test.done();
+exports.tearDown = function(done) {
+    server.stop(function() {
+        done();
+    });
 };
 
-exports.testNothing2 = function(test) {
-    test.equals(0, server.number(), "number");
-    test.done();
+//TODO: handle case where stop() is called before start()
+//TODO: test-drive stop() callback
+exports.testServerRespondsToGetRequests = function(test) {
+    server.start();
+    http.get("http://localhost:8080", function(response){
+        response.on("data", function(){});
+        test.done();
+
+    });
 };
+
