@@ -23,6 +23,9 @@ Engineering Tasks
 - TDD file serving
 - design work
 
+TODO on current Tasks
+- Do we want a custom 404 page?
+
 
 - Create a very simple HTTP Server (DONE)
 - automated build (DONE)
