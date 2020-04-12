@@ -13,18 +13,17 @@ Features
 User Stories (way of showing business process)
 - "hello world" server (DONE)
 - Serve a one-file homepage (DONE)
-- Serve 404 errors for everything else
+- Serve 404 errors for everything else (DONE)
+- Do we want a custom 404 page (DONE)
 - Marketing copy
 - Publish to Internet
 
 To get above stories done, we need engineering tasks. Engineering tasks are to do's for programmers
 Engineering Tasks
-- Spike serving a file
-- TDD file serving
-- design work
-
-TODO on current Tasks
-- Do we want a custom 404 page?
+- Spike serving a file (DONE)
+- TDD file serving (DONE)
+- design work (DONE)
+- Exploratory testing (DONE)
 
 
 - Create a very simple HTTP Server (DONE)
@@ -51,6 +50,8 @@ FUTURE IDEAS
 - Abstract test framework? (swap out a different framework to make sure abstraction works)
 - Add License.TXT (DONE)
 - Create 'fail fast' assertion code
+- Static checking of function parameters (rather than writing tests)
+- Handle errors properly in server.js
 
 Notes:
 -Nodeunit does not work properly on windows
