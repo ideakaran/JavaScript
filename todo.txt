@@ -24,6 +24,8 @@ Engineering Tasks
 - TDD file serving (DONE)
 - design work (DONE)
 - Exploratory testing (DONE)
+- Write end to end integration test
+- Write server launch code
 
 
 - Create a very simple HTTP Server (DONE)
