@@ -29,7 +29,7 @@ exports.stop = function(callback) {
 
 function serveFile(response, file){
     fs.readFile(file, function(err, data) {
-        if(err) throw err; //TODO: fix me
+        if(err) throw err;
         response.end(data);
     });
 }

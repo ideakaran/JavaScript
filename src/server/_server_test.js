@@ -15,7 +15,6 @@ exports.tearDown = function(done){
 };
 
 
-//TODO: Move file cleanup to tearDown method
 exports.test_servesHomePageFromFile = function(test) {
     var expectedData = "This is home page file";
     fs.writeFileSync(TEST_HOME_PAGE, expectedData);
