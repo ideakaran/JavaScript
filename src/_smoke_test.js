@@ -6,34 +6,45 @@
     "use strict";
     var child_process = require("child_process");
     var http = require("http");
+    var child;
+
+    exports.setUp = function(done) {
+        runServer(done);
+    };
+
+    exports.tearDown = function(done) {
+        child.on("exit", function(code, signal) {
+            done();
+        });
+        child.kill();
+    };
+
+    exports.test_canGetHomePage = function(test) {
+        httpGet("http://localhost:8080", function(response, receivedData) {
+            var foundHomePage  = receivedData.indexOf("WeeWikiPaint home page") !== -1;
+            test.ok(foundHomePage, "HomePage should have contained WeeWikiPaint marker");
+            test.done();
+        });
 
 
-    // exports.test_for_smoke = function(test) {
-    //     runServer(function(){
-    //         console.log("callback called");
-    //         httpGet("http://localhost:8080", function(response, receivedData) {
-    //             console.log("got file");
-    //             test.done();
-    //         });
-    //     });
-    // };
+    };
 
-    // function runServer(callback) {
-    //     var child = child_process.spawn("node", ["src/server/weewikipaint", "8080"]);
-    //     child.stdout.setEncoding("utf-8");
-    //     child.stdout.on("data", function(chunk) {
-    //         process.stdout.write("server stdout: "+chunk);
-    //         if(chunk === "Server started\n") callback();
-    //     });
-    //     child.stderr.on("data", function(chunk) {
-    //         console.log("server stderr: "+chunk);
-    //     });
-    //     child.on("exit", function(code, signal) {
-    //         console.log("Server porcess exited with code [" + code +"] and Signal [" + signal +"]");
-    //     });
-    // }
+    exports.test_canGet404Page = function(test) {
+        httpGet("http://localhost:8080/nonexistant.html", function(response, receivedData) {
+            var foundHomePage  = receivedData.indexOf("WeeWikiPaint 404 page") !== -1;
+            test.ok(foundHomePage, "404 should have contained test marker");
+            test.done();
+        });
+    };
 
-    //TODO: eleminate duplication w/ _server_test.js
+    function runServer(callback) {
+        child = child_process.spawn("node", ["src/server/weewikipaint", "8080"]);
+        child.stdout.setEncoding("utf-8");
+        child.stdout.on("data", function(chunk) {
+            if(chunk.trim() === "Server started") callback();
+        });
+    }
+
     function httpGet(url, callback) {
         var request = http.get(url);
 

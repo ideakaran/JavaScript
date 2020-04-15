@@ -47,6 +47,7 @@ To do on current task
 - Test-drive Server  -> DONE
 - Modify build script to enforce NODE version
 _ Integrate
+- Put homepage.html in a good directory
 
 FUTURE IDEAS
 - Abstract test framework? (swap out a different framework to make sure abstraction works)
