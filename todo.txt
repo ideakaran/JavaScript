@@ -42,6 +42,7 @@ Engineering Tasks
 - Integrate into HTML Page
 
 To do on current task
+- Run testacular/karma from Jake Script
 - make build fail when lint fails ->DONE
 - Choose framework -> DONE
 - make lint fail when test fail -> DONE
@@ -50,6 +51,14 @@ To do on current task
 - Modify build script to enforce NODE version (DONE
 _ Integrate (DONE)
 - Put homepage.html in a good directory (DONE)
+- Get Testacular/karma running manually with one browser (DONE_
+- Figure out best assertion framework (DONE, expect.js)
+- multiple browser(DONE)
+- automation
+- Set-up client side linting options
+- Automatically check that we're testing against all supported browsers
+- Move testacular.conf.js/karma.conf.js to a better location
+- Unify our test file location configuration (it's curretly jakefile & testacular/karma.conf.js configuration)
 
 FUTURE IDEAS
 - Add License.TXT (DONE)

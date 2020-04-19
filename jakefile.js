@@ -24,22 +24,33 @@
         var javascriptFiles = new jake.FileList();
         javascriptFiles.include("**/*.js");
         javascriptFiles.exclude("node_modules");
+        javascriptFiles.exclude("karma.conf.js");
         var options = nodeLintOptions();
         var passed = lint.validateFileList(javascriptFiles.toArray(), options, {});
         if (!passed) fail("Lint failed");
     });
 
     desc("Test everything");
-    task("test", ["nodeVersion", TEMP_TESTFILE_DIR], function() {
+    task("test", ["testServer", "testClient"], function() {
+
+    });
+    desc("Test server code");
+    task("testServer", ["nodeVersion", TEMP_TESTFILE_DIR], function() {
         var testFiles = new jake.FileList();
         testFiles.include("**/_*_test.js");
         testFiles.exclude("node_modules");
+        testFiles.exclude("src/client/**");
         var reporter = require("nodeunit").reporters["default"];
         reporter.run(testFiles.toArray(), null, function(failures) {
             if (failures) fail("Tests failed");
             complete();
         });
     }, {async: true});
+
+    desc("Test client code");
+    task("testClient", function(){
+        console.log("CLIENT CODE HERE");
+    });
 
     desc("Integrate");
     task("integrate", ["default"], function() {
@@ -79,7 +90,7 @@
 
     });
 
-    desc("deploy to heroku");
+    desc("deploy to Heroku");
     task("deploy", ["default"], function() {
         console.log("1. Make sure 'git status' is clean.");
         console.log("2. Run 'git push heroku master");

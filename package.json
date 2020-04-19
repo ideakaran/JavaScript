@@ -9,13 +9,23 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chai": "^4.2.0",
+    "expect.js": "^0.3.1",
     "jake": "^8.0.15",
     "jshint": "^2.11.0",
+    "karma": "^5.0.2",
+    "mocha": "^7.1.1",
     "nodeunit": "^0.11.3",
     "procfile": "^0.1.1",
+    "requirejs": "^2.3.6",
+    "should": "^13.2.3",
     "testacular": "^0.6.2"
   },
   "engines": {
     "node": "10.15.3"
+  },
+  "devDependencies": {
+    "karma-mocha": "^2.0.0",
+    "karma-requirejs": "^1.1.0"
   }
 }
