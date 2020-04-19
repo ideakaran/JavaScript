@@ -12,9 +12,10 @@
     "jake": "^8.0.15",
     "jshint": "^2.11.0",
     "nodeunit": "^0.11.3",
-    "procfile": "^0.1.1"
+    "procfile": "^0.1.1",
+    "testacular": "^0.6.2"
   },
-  "engines":  {
+  "engines": {
     "node": "10.15.3"
   }
 }

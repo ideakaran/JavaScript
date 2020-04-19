@@ -4,7 +4,8 @@ Does not have to be money, It is sth that market cares.
 
 For WeeWikiPaint: We build a collaborative, real time application.
 Features
-- marketing home page
+- marketing home page (DONE, deployed to heroku)
+- single-user painting on home page
 - collaborative painting page (very basic)
 - wiki-fy the pages
 - more complex painting ?
@@ -15,8 +16,11 @@ User Stories (way of showing business process)
 - Serve a one-file homepage (DONE)
 - Serve 404 errors for everything else (DONE)
 - Do we want a custom 404 page (DONE)
-- Marketing copy
-- Publish to Internet
+- Marketing copy (Done deployed to heroku)
+- Publish to Internet (DONE Published to heroku)
+---------------CLIENT SIDE TESTING------------------------
+- Create empty drawing area
+- Draw one line
 
 To get above stories done, we need engineering tasks. Engineering tasks are to do's for programmers
 Engineering Tasks
@@ -26,18 +30,16 @@ Engineering Tasks
 - Exploratory testing (DONE)
 - Write end to end integration test (DONE)
 - Write server launch code (DONE)
-
-
 - Create a very simple HTTP Server (DONE)
 - automated build (DONE)
 - static code analysis (Lint) (DONE)
-    -Bring in all options
+- Bring in all options
 - continuous integration (DONE)
 - server-side testing (DONE)
-- client-side testing
-
-
--Create a very simple HTTP server
+- Create a very simple HTTP server (DONE)
+- client-side testing-------------
+- Test drawing tool (Raphael?)
+- Integrate into HTML Page
 
 To do on current task
 - make build fail when lint fails ->DONE
@@ -45,18 +47,20 @@ To do on current task
 - make lint fail when test fail -> DONE
 - Spike HTTP Server with NODE -> DONE
 - Test-drive Server  -> DONE
-- Modify build script to enforce NODE version
-_ Integrate
-- Put homepage.html in a good directory
+- Modify build script to enforce NODE version (DONE
+_ Integrate (DONE)
+- Put homepage.html in a good directory (DONE)
 
 FUTURE IDEAS
-- Abstract test framework? (swap out a different framework to make sure abstraction works)
 - Add License.TXT (DONE)
 - Create 'fail fast' assertion code
+- Abstract test framework? (swap out a different framework to make sure abstraction works)
 - Static checking of function parameters (rather than writing tests)
 - Handle errors properly in server.js
 - server.stop() waits for open connections to close (e.g., firefoxx keeps open connection).
   Make it forcibly close?
-  -Remove Node Version duplication between package.json and jakeFile.js
+-Remove Node Version duplication between package.json and jakeFile.js
+- Fix HttpGet duplication
+
 Notes:
 -Nodeunit does not work properly on windows

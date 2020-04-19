@@ -79,6 +79,13 @@
 
     });
 
+    desc("deploy to heroku");
+    task("deploy", ["default"], function() {
+        console.log("1. Make sure 'git status' is clean.");
+        console.log("2. Run 'git push heroku master");
+        console.log("3. 'jake releasetest'");
+    });
+
     function parseNodeVersion(description, versionString) {
         var versionMatcher = /^v(\d+)\.(\d+)\.(\d+)$/;    // v[major].[minor].[bugfix]
         var versionInfo = versionString.match(versionMatcher);
