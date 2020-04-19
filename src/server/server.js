@@ -7,6 +7,7 @@ var server;
 
 exports.start = function(homePageToServe, notFoundPageToServe, portNumber, callback) {
     if(!homePageToServe) throw new Error("htmlFileToServe is required");
+    console.log("PortNumber::"+portNumber);
     if(!portNumber) throw new Error("PortNumber is required");
     server = http.createServer();
     server.on("request", function(request, response){
@@ -20,7 +21,11 @@ exports.start = function(homePageToServe, notFoundPageToServe, portNumber, callb
         }
 
     });
-   server.listen(portNumber, callback);
+    //   server.listen(process.env.port || portNumber, callback);
+   server.listen(portNumber, function() {
+       callback();
+   });
+
 };
 
 exports.stop = function(callback) {
@@ -29,7 +34,7 @@ exports.stop = function(callback) {
 
 function serveFile(response, file){
     fs.readFile(file, function(err, data) {
-        if(err) throw err;
+        if(err) throw err; //TODO: fix me
         response.end(data);
     });
 }
