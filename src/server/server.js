@@ -8,6 +8,7 @@ var server;
 exports.start = function(homePageToServe, notFoundPageToServe, portNumber, callback) {
     if(!homePageToServe) throw new Error("htmlFileToServe is required");
     console.log("PortNumber::"+portNumber);
+    if(portNumber === "$PORT") portNumber = process.env.port;
     if(!portNumber) throw new Error("PortNumber is required");
     server = http.createServer();
     server.on("request", function(request, response){
