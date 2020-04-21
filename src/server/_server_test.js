@@ -19,7 +19,7 @@ exports.tearDown = function(done){
 exports.test_servesHomePageFromFile = function(test) {
     var expectedData = "This is home page file";
     fs.writeFileSync(TEST_HOME_PAGE, expectedData);
-
+    console.log('Reached');
     httpGet(BASE_URL, function(response, responseData) {
         test.equals(200, response.statusCode, "status code");
         test.equals(expectedData, responseData, "response text");

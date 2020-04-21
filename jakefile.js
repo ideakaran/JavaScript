@@ -3,6 +3,8 @@
 /*global desc, task, jake, fail, complete, directory */
 (function() {
     "use strict";
+    var lint = require("./build/lint/lint_runner.js");
+    var nodeUnit = require("nodeunit").reporters["default"];
 
     var NODE_VERSION = "v0.8.6";
     var GENERATED_DIR = "generated";
@@ -18,30 +20,30 @@
     task("default", ["lint", "test"]);
 
     desc("Lint everything");
-    task("lint", ["nodeVersion"], function() {
-        var lint = require("./build/lint/lint_runner.js");
+    task("lint", ["lintNode", "lintClient"]);
 
-        var javascriptFiles = new jake.FileList();
-        javascriptFiles.include("**/*.js");
-        javascriptFiles.exclude("node_modules");
-        javascriptFiles.exclude("karma.conf.js");
+
+    desc("Lint Server");
+    task("lintNode", ["nodeVersion"], function() {
+       var files = nodeFiles();
         var options = nodeLintOptions();
-        var passed = lint.validateFileList(javascriptFiles.toArray(), options, {});
+        var passed = lint.validateFileList(files, options, {});
+        if (!passed) fail("Lint failed");
+    });
+
+    desc("Lint Client");
+    task("lintClient", [], function(){
+        var passed = lint.validateFileList(clientFiles(), browserLintOptions(), {});
         if (!passed) fail("Lint failed");
     });
 
     desc("Test everything");
-    task("test", ["testServer", "testClient"], function() {
-
-    });
+    task("test", ["testNode", "testClient"], function() {
+        sh("node node_modules/karma/bin/karma run", "Client Test Failed", complete);
+    }, {async: true});
     desc("Test server code");
-    task("testServer", ["nodeVersion", TEMP_TESTFILE_DIR], function() {
-        var testFiles = new jake.FileList();
-        testFiles.include("**/_*_test.js");
-        testFiles.exclude("node_modules");
-        testFiles.exclude("src/client/**");
-        var reporter = require("nodeunit").reporters["default"];
-        reporter.run(testFiles.toArray(), null, function(failures) {
+    task("testNode", ["nodeVersion", TEMP_TESTFILE_DIR], function() {
+        nodeUnit.run(nodeTestFiles(), null, function(failures) {
             if (failures) fail("Tests failed");
             complete();
         });
@@ -49,7 +51,6 @@
 
     desc("Test client code");
     task("testClient", function(){
-        console.log("CLIENT CODE HERE");
     });
 
     desc("Integrate");
@@ -108,7 +109,7 @@
         return [major, minor, bugfix];
     }
 
-    function sh(command, callback) {
+    function sh(command, errorMessage, callback ) {
         console.log("> " + command);
 
         var stdout = "";
@@ -116,15 +117,22 @@
         process.on("stdout", function(chunk) {
             stdout += chunk;
         });
+
+        process.on("error", function() {
+            console.log(errorMessage);
+            fail(errorMessage);
+        });
+
         process.on("cmdEnd", function() {
-            console.log();
+            console.log("JUMBO");
             callback(stdout);
         });
         process.run();
     }
 
-    function nodeLintOptions() {
-        return {
+
+    function globalLintOptions() {
+        var options = {
             bitwise:true,
             curly:false,
             eqeqeq:true,
@@ -139,7 +147,42 @@
             undef:true,
             strict:true,
             trailing:true,
-            node:true
         };
+        return options;
     }
+
+    function nodeLintOptions() {
+        var options = globalLintOptions();
+        options.node = true;
+        return options;
+    }
+
+    function browserLintOptions() {
+        var options = globalLintOptions();
+        options.browser = true;
+        return options;
+    }
+    function nodeTestFiles(){
+        var testFiles = new jake.FileList();
+        testFiles.include("**/_*_test.js");
+        testFiles.exclude("node_modules");
+        testFiles.exclude("src/client/**");
+        return testFiles.toArray();
+    }
+
+    function nodeFiles(){
+        var javascriptFiles = new jake.FileList();
+        javascriptFiles.include("**/*.js");
+        javascriptFiles.exclude("node_modules");
+        javascriptFiles.exclude("karma.conf.js");
+        javascriptFiles.exclude("src/client");
+        return javascriptFiles.toArray();
+    }
+
+    function clientFiles(){
+        var javascriptFiles = new jake.FileList();
+        javascriptFiles.include("src/client/**/*.js");
+        return javascriptFiles.toArray();
+    }
+
 }());
