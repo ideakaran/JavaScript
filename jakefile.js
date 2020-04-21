@@ -143,6 +143,7 @@
         console.log("> " + command);
 
         var stdout = "";
+        //TODO: stdout  if true then test fails
         var process = jake.createExec(command, {printStdout:false, printStderr: true});
 
         process.on("stdout", function(chunk) {
