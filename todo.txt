@@ -70,6 +70,8 @@ FUTURE IDEAS
   Make it forcibly close?
 -Remove Node Version duplication between package.json and jakeFile.js
 - Fix HttpGet duplication
+- Automated npm rebuild (Remove node_modules .bin directory from repository (and add to .gitignore) and npm rebuild in jake
+- Ensure that every browser has same number of tests running
 
 Notes:
 -Nodeunit does not work properly on windows

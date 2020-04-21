@@ -5,8 +5,7 @@
     //var assert = chai.assert;
     describe("Nothing", function() {
         it('should run', function () {
-            dump(expect);
-            expect("foo").to.equal("foo");
+            expect("foo").to.equal("fsoo");
         });
     });
 })();

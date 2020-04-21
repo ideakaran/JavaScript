@@ -15,8 +15,7 @@
     ];
 
 
-    directory(TE
-    MP_TESTFILE_DIR);
+    directory(TEMP_TESTFILE_DIR);
 
     desc("Delete all generated files");
     task("clean", [], function(){
@@ -25,6 +24,12 @@
 
     desc("Build and test");
     task("default", ["lint", "test"]);
+
+    desc("Start Karma Server for testing");
+    task("karma", function () {
+        sh("node node_modules/karma/bin/karma start build/karma.conf.js", "Could not start Karma server", complete);
+    }, {async: true});
+
 
     desc("Lint everything");
     task("lint", ["lintNode", "lintClient"]);
@@ -58,11 +63,15 @@
 
     desc("Test client code");
     task("testClient", function(){
-        sh("node node_modules/karma/bin/karma run", "Client Test Failed", function(output) {
-            console.log("After tests::");
+        //START
+        sh("node node_modules/karma/bin/karma run", "Client Test Failed.", function(output) {
+            console.log("Browser Testing Result::");
             SUPPORTED_BROWSERS.forEach(function(browser) {
                 assertBrowserIsTested(browser, output);
             });
+            if(output.indexOf("0 of 0 SUCCESS") !== -1) {
+                fail("Client Test Did not run");
+            }
         });
     }, {async: true});
 
@@ -139,13 +148,13 @@
         process.on("stdout", function(chunk) {
             stdout += chunk;
         });
-        process.on("error", function() {
-            console.log(errorMessage);
+        process.on("error", function(chunk) {
+            console.log(errorMessage +'---'+chunk);
             fail(errorMessage);
         });
 
         process.on("cmdEnd", function() {
-            console.log("JUMBO");
+            console.log(command +" Ended");
             callback(stdout);
         });
         process.run();
