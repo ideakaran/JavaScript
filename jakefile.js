@@ -9,8 +9,15 @@
     var NODE_VERSION = "v0.8.6";
     var GENERATED_DIR = "generated";
     var TEMP_TESTFILE_DIR = GENERATED_DIR + "/test";
+    var SUPPORTED_BROWSERS = [
+        "Firefox",
+        "Chrome"
+    ];
 
-    directory(TEMP_TESTFILE_DIR);
+
+    directory(TE
+    MP_TESTFILE_DIR);
+
     desc("Delete all generated files");
     task("clean", [], function(){
        jake.rmRf(GENERATED_DIR);
@@ -38,9 +45,9 @@
     });
 
     desc("Test everything");
-    task("test", ["testNode", "testClient"], function() {
-        sh("node node_modules/karma/bin/karma run", "Client Test Failed", complete);
-    }, {async: true});
+    task("test", ["testNode", "testClient"]);
+
+
     desc("Test server code");
     task("testNode", ["nodeVersion", TEMP_TESTFILE_DIR], function() {
         nodeUnit.run(nodeTestFiles(), null, function(failures) {
@@ -51,7 +58,21 @@
 
     desc("Test client code");
     task("testClient", function(){
-    });
+        sh("node node_modules/karma/bin/karma run", "Client Test Failed", function(output) {
+            console.log("After tests::");
+            SUPPORTED_BROWSERS.forEach(function(browser) {
+                assertBrowserIsTested(browser, output);
+            });
+        });
+    }, {async: true});
+
+
+    function assertBrowserIsTested(browser, output) {
+        var searchString = browser;
+        var found = output.indexOf(searchString) !== -1;
+        if(!found) fail(browser + " was not tested");
+        else console.log("Confirmed "+ browser);
+    }
 
     desc("Integrate");
     task("integrate", ["default"], function() {
@@ -113,11 +134,11 @@
         console.log("> " + command);
 
         var stdout = "";
-        var process = jake.createExec(command, {printStdout:true, printStderr: true});
+        var process = jake.createExec(command, {printStdout:false, printStderr: true});
+
         process.on("stdout", function(chunk) {
             stdout += chunk;
         });
-
         process.on("error", function() {
             console.log(errorMessage);
             fail(errorMessage);

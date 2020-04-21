@@ -56,7 +56,7 @@ _ Integrate (DONE)
 - multiple browser(DONE)
 - automation
 - Set-up client side linting options (DONE)
-- Automatically check that we're testing against all supported browsers
+- Automatically check that we're testing against all supported browsers (DONE)
 - Move testacular.conf.js/karma.conf.js to a better location
 - Unify our test file location configuration (it's curretly jakefile & testacular/karma.conf.js configuration)
 
