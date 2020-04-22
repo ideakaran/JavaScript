@@ -1,4 +1,4 @@
-/*global describe, it, expect, dump, wwp*/
+/*global describe, it, expect, dump, $, wwp*/
 
 (function() {
     "use strict";
@@ -13,10 +13,11 @@
             // initialize it (production code)
             wwp.initializeDrawingArea("wwp-drawingArea");
 
-
             //verify it was initialized correctly
-            var extractedDiv = document.getElementById("wwp-drawingArea");
-            expect(extractedDiv).to.be.ok();
+            var tagName = $(div).children()[0].tagName;
+            expect(tagName).to.equal("svg");
+            /*jshint -W087 */
+            //debugger;
         });
     });
 })();
