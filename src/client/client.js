@@ -1,15 +1,13 @@
-/*global describe, it, expect, dump, $*/
+/*global describe, it, expect, Raphael, dump $*/
+
+var wwp = {};
 
 (function(){
     "use strict";
 
-    $(function() {
-        var div = document.createElement("div");
-        div.setAttribute("id", "tdjs");
-        div.setAttribute("foo", "bar");
-        document.body.appendChild(div);
-        /*jshint -W087 */
-        //debugger;
-        dump("window loaded");
-    });
+    var raphael = Raphael;
+    wwp.initializeDrawingArea = function(drawingAreaId) {
+        var paper = raphael(drawingAreaId);
+    };
+
 }());

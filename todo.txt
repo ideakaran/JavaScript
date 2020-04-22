@@ -44,9 +44,12 @@ Engineering Tasks
 - server-side testing (DONE)
 - Create a very simple HTTP server (DONE)
 - Basic DOM test
+- Create drawing area using Raphael
+- Smoke Test  to ensure that our magic div is in our actual home page.
 - client-side testing-------------
 - Test drawing tool (Raphael?)
 - Integrate into HTML Page
+
 
 
 To do on current task
@@ -73,7 +76,9 @@ _ Integrate (DONE)
 - Insert elements into Testacular/karma DOM (DONE)
 - Assert existing elements (DONE)
 - Install jQuery (DONE)
-- Get onLoad() working or not worry about onload
+- Get onLoad() working or not worry about onload (DONE)
+- TDD Drawing Area
+- Assert that Raphael has been used to initialize our div
 - Modify Lint settings for client global variables
 
 FUTURE IDEAS
