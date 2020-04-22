@@ -21,6 +21,7 @@ module.exports = function(config) {
         //"node_modules/chai/chai.js",
         //"node_modules/should/should.js",
         "node_modules/expect.js/index.js",
+        "vendor_client/jquery-3.5.0.js",
         "src/client/*"
     ],
 

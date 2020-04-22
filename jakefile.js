@@ -11,7 +11,8 @@
     var TEMP_TESTFILE_DIR = GENERATED_DIR + "/test";
     var SUPPORTED_BROWSERS = [
         "Firefox",
-        //"Chrome"
+        "Chrome",
+        "IE"
     ];
 
 
@@ -214,6 +215,7 @@
         javascriptFiles.exclude("node_modules");
         javascriptFiles.exclude("karma.conf.js");
         javascriptFiles.exclude("src/client");
+        javascriptFiles.exclude("vendor_client/*");
         return javascriptFiles.toArray();
     }
 

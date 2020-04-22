@@ -69,9 +69,12 @@ _ Integrate (DONE)
 - Unify our test file location configuration (it's curretly jakefile & testacular/karma.conf.js configuration)
 
 - Make Jake Success more obvious (DONE)
-- Make test look at testacular/Karma DOM
-- Insert elements into Testacular/karma DOM
-- Assert existing elements
+- Make test look at testacular/Karma DOM (DONE)
+- Insert elements into Testacular/karma DOM (DONE)
+- Assert existing elements (DONE)
+- Install jQuery (DONE)
+- Get onLoad() working or not worry about onload
+- Modify Lint settings for client global variables
 
 FUTURE IDEAS
 - Add License.TXT (DONE)
