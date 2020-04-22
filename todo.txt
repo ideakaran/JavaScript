@@ -18,6 +18,12 @@ User Stories (way of showing business process)
 - Do we want a custom 404 page (DONE)
 - Marketing copy (Done deployed to heroku)
 - Publish to Internet (DONE Published to heroku)
+- Create Empty Drawing Area
+- Draw one line(pre-defined)
+- Draw a line in response to user mouse
+- Draw a line in response to iOS touch
+- Draw multiple lines / follow the drag
+- Minify and deploy
 ---------------CLIENT SIDE TESTING------------------------
 - Create empty drawing area
 - Draw one line
@@ -37,9 +43,11 @@ Engineering Tasks
 - continuous integration (DONE)
 - server-side testing (DONE)
 - Create a very simple HTTP server (DONE)
+- Basic DOM test
 - client-side testing-------------
 - Test drawing tool (Raphael?)
 - Integrate into HTML Page
+
 
 To do on current task
 - Run testacular/karma from Jake Script
@@ -57,8 +65,13 @@ _ Integrate (DONE)
 - automation
 - Set-up client side linting options (DONE)
 - Automatically check that we're testing against all supported browsers (DONE)
-- Move testacular.conf.js/karma.conf.js to a better location
+- Move testacular.conf.js/karma.conf.js to a better location (DONE)
 - Unify our test file location configuration (it's curretly jakefile & testacular/karma.conf.js configuration)
+
+- Make Jake Success more obvious (DONE)
+- Make test look at testacular/Karma DOM
+- Insert elements into Testacular/karma DOM
+- Assert existing elements
 
 FUTURE IDEAS
 - Add License.TXT (DONE)

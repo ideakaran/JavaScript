@@ -20,8 +20,8 @@ module.exports = function(config) {
         //MOCHA_ADAPTER,
         //"node_modules/chai/chai.js",
         //"node_modules/should/should.js",
-        "../node_modules/expect.js/index.js",
-        "../src/client/_*_test.js"
+        "node_modules/expect.js/index.js",
+        "src/client/*"
     ],
 
 
@@ -62,6 +62,10 @@ module.exports = function(config) {
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
     browsers: [],
+
+    client: {
+      captureConsole: true
+    },
 
 
     // Continuous Integration mode
