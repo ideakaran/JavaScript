@@ -78,7 +78,9 @@ _ Integrate (DONE)
 - Install jQuery (DONE)
 - Get onLoad() working or not worry about onload (DONE)
 - TDD Drawing Area
-- Assert that Raphael has been used to initialize our div
+- Assert that Raphael has been used to initialize our div (DONE)
+- Make test check different things for IE 8 and everyone else
+- Figure out exactly what Raphael is doing on IE 8
 - Modify Lint settings for client global variables
 
 FUTURE IDEAS
