@@ -45,8 +45,9 @@ Engineering Tasks
 - Create a very simple HTTP server (DONE)
 - Basic DOM test
 - Create drawing area using Raphael
-- Respect dimensions of enclosing div
+- Respect dimensions of enclosing div (DONE)
 - Factor out common elements in our client tests.
+- Figure out how to get dimensions of Raphael paper (DONE)
 - Smoke Test  to ensure that our magic div is in our actual home page.
 - client-side testing-------------
 - Test drawing tool (Raphael?)
