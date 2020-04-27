@@ -1,4 +1,4 @@
-/*global describe, it, expect, console, dump, afterEach, $, wwp*/
+/*global describe, it, expect, console, dump, Raphael, afterEach, $, wwp*/
 
 (function() {
     "use strict";
@@ -13,19 +13,20 @@
             //create div that's assumed to be in our home page
             drawingArea = $("<div></div>");
             $(document.body).append(drawingArea);
-
             // initialize it (production code)
             wwp.initializeDrawingArea(drawingArea[0]);
 
             //verify it was initialized correctly
             var tagName = $(drawingArea).children()[0].tagName;
-            if(tagName === "svg") {
+            if(Raphael.type === "SVG") {
                 expect(tagName).to.equal("svg");
-            } else {
+            } else if(Raphael.type === "VML"){
                 //We're in IE8
                 //IE8: <div id="canvas><rvml></rvml></div>
                 dump($(drawingArea).find("div").length);
                 expect(tagName).to.equal("div");
+            } else {
+                expect().fail("Browser does not support Raphael");
             }
 
             /*jshint -W087 */

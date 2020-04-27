@@ -1,4 +1,4 @@
-/*global describe, it, expect, Raphael, dump $*/
+/*global describe, it, expect, dump, Raphael,  $*/
 
 var wwp = {};
 
@@ -6,6 +6,7 @@ var wwp = {};
     "use strict";
 
     wwp.initializeDrawingArea = function(drawingAreaElement) {
+        dump(Raphael.type);
         var paper = new Raphael(drawingAreaElement);
         return paper;
     };

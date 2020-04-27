@@ -46,9 +46,12 @@ Engineering Tasks
 - Basic DOM test
 - Create drawing area using Raphael
 - Respect dimensions of enclosing div (DONE)
-- Factor out common elements in our client tests.
+- Factor out common elements in our client tests. (DONE)
 - Figure out how to get dimensions of Raphael paper (DONE)
 - Smoke Test  to ensure that our magic div is in our actual home page.
+- Modify our home page for manual testing
+- Spike drawing a line and review it manually
+- Redo line-drawing code test-driven
 - client-side testing-------------
 - Test drawing tool (Raphael?)
 - Integrate into HTML Page
@@ -62,7 +65,7 @@ To do on current task
 - make lint fail when test fail -> DONE
 - Spike HTTP Server with NODE -> DONE
 - Test-drive Server  -> DONE
-- Modify build script to enforce NODE version (DONE
+- Modify build script to enforce NODE version (DONE)
 _ Integrate (DONE)
 - Put homepage.html in a good directory (DONE)
 - Get Testacular/karma running manually with one browser (DONE_
