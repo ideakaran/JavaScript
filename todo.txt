@@ -50,7 +50,7 @@ Engineering Tasks
 - Figure out how to get dimensions of Raphael paper (DONE)
 - Smoke Test  to ensure that our magic div is in our actual home page.
 - Modify our home page for manual testing
-- Spike drawing a line and review it manually
+- Spike drawing a line and review it manually (DONE)
 - Redo line-drawing code test-driven
 - client-side testing-------------
 - Test drawing tool (Raphael?)
@@ -88,6 +88,8 @@ _ Integrate (DONE)
 - Make test check different things for IE 8 and everyone else
 - Figure out exactly what Raphael is doing on IE 8
 - Modify Lint settings for client global variables
+- Factor out common initialization code?
+- Convert 'client' to be proper object rather than global singleton
 
 FUTURE IDEAS
 - Add License.TXT (DONE)

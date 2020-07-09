@@ -1,4 +1,4 @@
-/*global describe, it, expect, console, dump, Raphael, afterEach, $, wwp*/
+/*global describe, it, expect, console, dump, Raphael, afterEach, $, debugger,  wwp*/
 
 (function() {
     "use strict";
@@ -43,5 +43,40 @@
             expect(paper.height).to.equal(300);
             expect(paper.width).to.equal(600);
         });
+
+        it("should draw a line", function() {
+            var div = $("<div style='height: 300px; width: 600px;'>hi</div>");
+            $(document.body).append(div);
+            //initialize it (production code)
+            var paper = wwp.initializeDrawingArea(div[0]);
+            wwp.drawLine(20, 30, 30, 300);
+            var elements = [];
+            paper.forEach(function(element) {
+                elements.push(element);
+            });
+            ///*jshint -W087 */
+            expect(elements.length).to.equal(1);
+            var element = elements[0];
+            var path = pathFor(element);
+
+            expect(path).to.equal("M20,30L30,300");
+            dump(element.node.attributes.d.textContent);
+        });
+
+        function pathFor(element) {
+            var path = element.node.attributes.d.value;
+            if(path.indexOf(",") !== -1) {
+                //We're in firefox, Safari, Chrome, which uses format M20,30L30,300
+                return path;
+            } else {
+                //We're in IE 11 which uses the format M 20 30 L 30 300
+                var ie11Path = /M (\d+) (\d+) L (\d+) (\d+)/;
+                var ie11 = path.match(ie11Path);
+                dump("This is IE 11");
+                dump(ie11);
+                return "M"+ ie11[1] + "," + ie11[2] + "L" + ie11[3] + "," + ie11[4];
+            }
+            return path;
+        }
     });
 })();
