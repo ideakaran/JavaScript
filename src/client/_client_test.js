@@ -65,6 +65,19 @@
 
         function pathFor(element) {
             var path = element.node.attributes.d.value;
+            if(Raphael.vml) {
+                //We're in IE 8, which uses format //m432000, l648000, 67456800 e
+                path = element.node.path.value;
+                var ie8Path = /m(\d+), (\d+), l(\d+), (\d+) e/;
+                var ie8 = path.match(ie8Path);
+                var VML_MAGIC_NUMBER = 21600;
+
+                var startX = ie8[1] / VML_MAGIC_NUMBER;
+                var startY   = ie8[2] / VML_MAGIC_NUMBER;
+                var endX = ie8[3] / VML_MAGIC_NUMBER;
+                var endY = ie8[4] / VML_MAGIC_NUMBER;
+                return "M" + startX +"," + startY + "L" + endX + "," + endY;
+            }
             if(path.indexOf(",") !== -1) {
                 //We're in firefox, Safari, Chrome, which uses format M20,30L30,300
                 return path;
