@@ -65,15 +65,15 @@
 
         function pathFor(element) {
             if(Raphael.vml) {
-                return pathForVML(element);
+                return vmlPathFor(element);
             } else if(Raphael.svg) {
-                return pathForSVG(element);
+                return svgPathFor(element);
             } else {
                 throw new Error("Unknown Raphael Type");
             }
         }
 
-        function pathForVML(element) {
+        function vmlPathFor(element) {
             //We're in IE 8, which uses format //m432000, l648000, 67456800 e
             var path = element.node.path.value;
             var ie8Path = /m(\d+), (\d+), l(\d+), (\d+) e/;
@@ -87,7 +87,7 @@
             return "M" + startX +"," + startY + "L" + endX + "," + endY;
         }
 
-        function pathForSVG(element) {
+        function svgPathFor(element) {
             var path = element.node.attributes.d.value;
 
             if(path.indexOf(",") !== -1) {
